@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf7ea;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f5faf5;
+            border-radius: 12px;
+        }
+
+        .section h2 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        small {
+            display: block;
+            margin-top: 5px;
+            color: #777;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1b5e20;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .result h2 {
+            color: #2e7d32;
+        }
+
+        .result h1 {
+            color: #1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌱 AgriConnect</h1>
+
+    <p class="subtitle">
+        Smart Crop Recommendation System
+    </p>
+
+    <form method="POST">
+
+        <!-- Soil Details -->
+        <div class="section">
+
+            <h2>🌱 Soil Details</h2>
+
+            <label>Nitrogen (N)</label>
+            <input type="number" name="N" step="any" required>
+            <small>Soil nutrient that supports plant growth.</small>
+
+            <label>Phosphorus (P)</label>
+            <input type="number" name="P" step="any" required>
+            <small>Helps root development and plant growth.</small>
+
+            <label>Potassium (K)</label>
+            <input type="number" name="K" step="any" required>
+            <small>Helps improve plant strength and health.</small>
+
+            <label>Soil pH</label>
+            <input type="number" name="ph" step="any" required>
+            <small>Shows whether the soil is acidic or alkaline.</small>
+
+        </div>
+
+        <!-- Weather Details -->
+        <div class="section">
+
+            <h2>🌦️ Weather Details</h2>
+
+            <label>Temperature (°C)</label>
+            <input type="number" name="temperature" step="any" required>
+            <small>Current temperature of the area.</small>
+
+            <label>Humidity (%)</label>
+            <input type="number" name="humidity" step="any" required>
+            <small>Amount of moisture present in the air.</small>
+
+            <label>Rainfall (mm)</label>
+            <input type="number" name="rainfall" step="any" required>
+            <small>Amount of rainfall received.</small>
+
+        </div>
+
+        <button type="submit">🌾 Recommend Crop</button>
+
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Recommended Crop</h2>
+        <h1>🌾 {{ result }}</h1>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
